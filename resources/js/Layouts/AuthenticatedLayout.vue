@@ -39,12 +39,12 @@ const showingNavigationDropdown = ref(false);
                                     Dashboard
                                 </NavLink>
 
-                                <!-- Products Index Link -->
+                                <!-- Categories Index Link -->
                                 <NavLink
-                                    :href="route('products.index')"
-                                    :active="route().current('products.index')"
+                                    :href="route('categories.index')"
+                                    :active="route().current('categories.index')"
                                 >
-                                    Products
+                                    Categories
                                 </NavLink>
                             </div>
                         </div>
