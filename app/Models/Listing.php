@@ -17,6 +17,11 @@ class Listing extends Model
         'condition',
         'location',
         'status',
+        'extra_fields',
+    ];
+
+    protected $casts = [
+        'extra_fields' => 'array',
     ];
 
     public function user()

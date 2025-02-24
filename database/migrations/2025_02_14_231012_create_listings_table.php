@@ -29,10 +29,8 @@ return new class extends Migration {
             $table->string('location')->nullable();
             $table->enum('status', ['active', 'inactive', 'sold', 'pending'])->default('active');
 
-            // Polymorphic columns:
-            $table->unsignedBigInteger('listingable_id');
-            $table->string('listingable_type');
-            
+            $table->json('extra_fields')->nullable();
+
             $table->timestamps();
         });
     }

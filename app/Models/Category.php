@@ -23,4 +23,10 @@ class Category extends Model
         return $this->hasMany(Listing::class);
     }
 
+    public function extrafields()
+    {
+        return $this->hasMany(ExtraField::class);
+    }
+
+
 }

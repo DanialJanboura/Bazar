@@ -1,6 +1,6 @@
 <script setup>
 import {ref} from 'vue';
-import {Head, router, useForm} from '@inertiajs/vue3';
+import {Head, Link, router, useForm} from '@inertiajs/vue3';
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout.vue";
 
 const showModal = ref(false); // Controls modal visibility
@@ -62,7 +62,7 @@ const submit = () => {
                         <table class="w-full border border-gray-300 rounded-lg shadow-sm overflow-hidden">
                             <thead>
                             <tr class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 uppercase text-sm font-semibold">
-                                <th class="border p-3 text-left">Id</th>
+
                                 <th class="border p-3 text-left">Name</th>
                                 <th class="border p-3 text-left">Parent_id</th>
                                 <th class="border p-3 text-left">Slug</th>
@@ -72,8 +72,15 @@ const submit = () => {
                             <tbody>
                             <tr v-for="category in categories" :key="category.id"
                                 class="hover:bg-gray-50 dark:hover:bg-gray-600 transition-all">
-                                <td class="border p-3 font-medium">{{ category.id }}</td>
-                                <td class="border p-3 font-medium">{{ category.name }}</td>
+
+                                <td class="border p-3 font-medium">
+                                    <Link
+                                        :href="route('categories.show', category.id)"
+                                        class="text-blue-600 hover:underline"
+                                    >
+                                        {{ category.name }}
+                                    </Link>
+                                </td>
                                 <td class="border p-3 text-gray-600 dark:text-gray-300">
                                     {{ category.parent ? category.parent.name : 'No Parent' }}
                                 </td>

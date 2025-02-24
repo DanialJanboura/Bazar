@@ -8,9 +8,7 @@ use Inertia\Inertia;
 
 class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         // Retrieve all categories. You might also want to paginate or sort as needed.
@@ -23,17 +21,13 @@ class CategoryController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
-        //
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         // Validate incoming request data
@@ -56,7 +50,12 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $category->load('parent');
+
+        // Return an Inertia page with the category data
+        return Inertia::render('Category/Show', [
+            'category' => $category
+        ]);
     }
 
     /**
