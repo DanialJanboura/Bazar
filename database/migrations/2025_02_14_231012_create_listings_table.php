@@ -28,6 +28,11 @@ return new class extends Migration {
             $table->enum('condition', ['new', 'used', 'refurbished'])->default('used');
             $table->string('location')->nullable();
             $table->enum('status', ['active', 'inactive', 'sold', 'pending'])->default('active');
+
+            // Polymorphic columns:
+            $table->unsignedBigInteger('listingable_id');
+            $table->string('listingable_type');
+            
             $table->timestamps();
         });
     }
